@@ -30,8 +30,9 @@ function onMouseMove(event){
     }
 }
 
-function onMouseDown(event){
-    painting = true;
+function handelColorClick(event){
+    const color = event.target.style.backgroundColor;
+    ctx.strokeStyle = color;
 }
 
 if(canvas){
@@ -40,3 +41,7 @@ if(canvas){
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("mouseleave", stopPainting);
 }
+
+//console.log(Array.from(colors));
+
+Array.from(colors).forEach(color => color.addEventListener("click", handelColorClick));
